@@ -1,5 +1,6 @@
 package utils;
 
+import org.jspecify.annotations.Nullable;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -8,6 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 
 public class FactoryWebElements {
 
@@ -22,5 +24,19 @@ public class FactoryWebElements {
         }
         return elemento;
     }
+
+    public static List<WebElement> initElementsWithXpath(WebDriver driver, String xpath){
+        List<WebElement> elemento = null;
+        try{
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            elemento = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath(xpath)));
+            return  elemento;
+        } catch (Exception ex) {
+            Assert.assertTrue("Elemento no fue encontrados <<"+xpath+">>", false);
+        }
+        return elemento;
+    }
+
+
 
 }

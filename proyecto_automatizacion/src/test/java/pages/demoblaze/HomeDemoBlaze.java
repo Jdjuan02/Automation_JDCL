@@ -1,9 +1,10 @@
 package pages.demoblaze;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import utils.FactoryWebElements;
+
+import java.util.List;
 
 public class HomeDemoBlaze {
     public static WebElement getGoupCategories (WebDriver driver){
@@ -22,7 +23,11 @@ public class HomeDemoBlaze {
         return FactoryWebElements.initWithXpath(driver, "//a[contains(@onclick, \"byCat('monitor')\")]");
     }
 
-    public static By getContainsProducts (WebDriver cssSelector){
+    /*public static By getContainsProducts (WebDriver cssSelector){
         return By.cssSelector("//div[contains(@class, \"col-lg-4 col-md-6 mb-4\")]");
+    }*/
+
+    public static List<WebElement> getProductos (WebDriver driver){
+        return FactoryWebElements.initElementsWithXpath(driver, "//div[@class=\"card-block\"]");
     }
 }

@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = "definitions",
-        tags = "@Criterio2",
+        tags = "@Criterio3",
         publish = true
 )
 public class RunCucumber {
