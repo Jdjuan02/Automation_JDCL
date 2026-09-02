@@ -17,7 +17,7 @@ public class Criterio2_DemoBlaze {
         driver.get(url);
     }*/
 
-    @When("ingreso a la categoría {string}")
+    @When("doy click a la categoria {string}")
     public void ingreso_a_la_categoría(String producto) throws InterruptedException {
 
         HomeDemoBlaze.getTitulocategori1(driver).click();
