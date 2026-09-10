@@ -30,4 +30,8 @@ public class HomeDemoBlaze {
     public static List<WebElement> getProductos (WebDriver driver){
         return FactoryWebElements.initElementsWithXpath(driver, "//div[@class=\"card-block\"]");
     }
+
+    public static WebElement getTituloPrincipal (WebDriver driver){
+        return FactoryWebElements.initWithXpath(driver, "/html/head/title");
+    }
 }

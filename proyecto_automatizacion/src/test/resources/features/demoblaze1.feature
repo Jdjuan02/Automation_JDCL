@@ -20,3 +20,10 @@
 
       When doy click en la categoria "Laptops"
       Then Valido que existan maximo "9" productos
+
+
+    @Criterio4
+    Scenario: El titulo de la pestaña es store
+      Given Estoy en la web de "https://demoblaze.com/#"
+
+      Then El titulo de la pestaña debe ser "STORE"
