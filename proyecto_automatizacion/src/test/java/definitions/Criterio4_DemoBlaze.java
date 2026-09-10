@@ -14,7 +14,6 @@ public class Criterio4_DemoBlaze {
         String tituloStore = driver.getTitle();
         String tituloEsperado = tittlePestaña;
 
-
         System.out.println("Se espera: "+tituloEsperado+ " ");
         System.out.println("Se extrae el titulo: "+tituloStore+ " ");
         Assert.assertTrue("El nombre de la pestaña es ", tituloStore.equals(tituloEsperado));
