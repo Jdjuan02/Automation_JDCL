@@ -2,6 +2,8 @@ package definitions;
 
 import configs.WebDriverManager;
 
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
@@ -17,19 +19,21 @@ public class Criterio2_DemoBlaze {
         driver.get(url);
     }*/
 
-    @When("doy click a la categoria {string}")
-    public void ingreso_a_la_categoría(String producto) throws InterruptedException {
+    @Given("doy click a la categoria {string}")
+    public void doy_click_a_la_categoria_y(String categoryPhone) throws InterruptedException {
 
-        HomeDemoBlaze.getTitulocategori1(driver).click();
+        HomeDemoBlaze.getTitulocategori3(driver).click();
         Thread.sleep(3000);
     }
 
-    @Then("Valido que no existan menos de {string} prodictos")
+    @Given("Valido que no existan menos de {string} productos")
     public void la_categoría_debe_tener_como_mínimo_productos(String numProd) {
         int numeroEsperado = Integer.parseInt(numProd);
         int numeroProdFront = HomeDemoBlaze.getProductos(driver).size();
         System.out.println("Se esperan: "+numeroEsperado+ " Elementos");
-        System.out.println("Se encuentran: "+numeroProdFront+ " Elementos en el foront");
-        Assert.assertTrue("El numero de productos es menor al esperado", numeroProdFront <=  numeroEsperado);
+        System.out.println("Se encuentran: "+numeroProdFront+ " Elementos en el front");
+        Assert.assertTrue("El numero de productos es menor al esperado", numeroProdFront >=  numeroEsperado);
     }
+
+
 }
