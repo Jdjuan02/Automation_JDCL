@@ -34,4 +34,8 @@ public class HomeDemoBlaze {
     public static WebElement getTituloPrincipal (WebDriver driver){
         return FactoryWebElements.initWithXpath(driver, "/html/head/title");
     }
+
+    public static WebElement getProducto (WebDriver driver, String producto){
+        return FactoryWebElements.initWithXpath(driver, "//a[@class=\"hrefch\" and contains(text(), '"+producto+"')]");
+    }
 }

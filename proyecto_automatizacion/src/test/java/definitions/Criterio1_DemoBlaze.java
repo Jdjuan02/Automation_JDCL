@@ -7,6 +7,7 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import pages.demoblaze.HomeDemoBlaze;
+import pages.demoblaze.ProductosDemoBlaze;
 
 
 public class Criterio1_DemoBlaze {
@@ -81,4 +82,20 @@ public class Criterio1_DemoBlaze {
         Assert.assertEquals("la categoria no es igual", tituloStore, tituloEsperado);
 
     }
+
+    @When("realizo click sobre el producto {string}")
+    public void realizo_click_sobre_el_producto(String nombreProducto) throws InterruptedException {
+        HomeDemoBlaze.getProducto(driver, nombreProducto).click();
+        Thread.sleep(3000);
+    }
+
+    @Then("Valido que la ficha corresponde a {string}")
+    public void valido_que_la_ficha_corresponde_a(String tituloProd) {
+        String tituloFront = ProductosDemoBlaze.gettituloProducto(driver).getText();
+        String tituloEsperado = tituloProd;
+        System.out.println("Se espera el titulo: "+tituloEsperado+ " ");
+        System.out.println("Se encuentra el titulo: "+tituloFront+ " en el front");
+        Assert.assertEquals("El titulo del producto no es igual", tituloFront, tituloEsperado);
+    }
+
 }
