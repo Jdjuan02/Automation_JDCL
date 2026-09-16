@@ -38,4 +38,12 @@ public class HomeDemoBlaze {
     public static WebElement getProducto (WebDriver driver, String producto){
         return FactoryWebElements.initWithXpath(driver, "//a[@class=\"hrefch\" and contains(text(), '"+producto+"')]");
     }
+
+    public static WebElement getProductCart1 (WebDriver driver){
+        return FactoryWebElements.initWithXpath(driver, "//a[@class = \"btn btn-success btn-lg\" and contains(text(), \"Add to cart\")]");
+    }
+
+    public static WebElement getButtonCart (WebDriver driver){
+        return FactoryWebElements.initWithXpath(driver, "//a[@id = \"cartur\"]");
+    }
 }

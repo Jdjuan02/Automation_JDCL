@@ -49,7 +49,7 @@ public class Criterio1_DemoBlaze {
     @Given("doy click a la categoria {string}")
     public void doy_click_a_la_categoria_y(String categoryPhone) throws InterruptedException {
 
-        HomeDemoBlaze.getTitulocategori3(driver).click();
+        HomeDemoBlaze.getTitulocategori1(driver).click();
         Thread.sleep(3000);
     }
 
@@ -89,13 +89,34 @@ public class Criterio1_DemoBlaze {
         Thread.sleep(3000);
     }
 
-    @Then("Valido que la ficha corresponde a {string}")
-    public void valido_que_la_ficha_corresponde_a(String tituloProd) {
+    @When("Valido que la ficha corresponde a {string}")
+    public void valido_que_la_ficha_corresponde_a(String tituloProd) throws InterruptedException {
         String tituloFront = ProductosDemoBlaze.gettituloProducto(driver).getText();
         String tituloEsperado = tituloProd;
         System.out.println("Se espera el titulo: "+tituloEsperado+ " ");
         System.out.println("Se encuentra el titulo: "+tituloFront+ " en el front");
         Assert.assertEquals("El titulo del producto no es igual", tituloFront, tituloEsperado);
+        Thread.sleep(3000);
+    }
+
+    @When("realizo clic en agregar a carrito")
+    public void realizo_clic_en_agregar_a_carrito() throws InterruptedException {
+        HomeDemoBlaze.getProductCart1(driver).click();
+        Thread.sleep(2000);
+        driver.switchTo().alert().accept();
+    }
+
+    @When("realizo click en el carrito")
+    public void realizo_click_en_el_carrito() {
+        HomeDemoBlaze.getButtonCart(driver).click();
+    }
+
+    @Then("valido que el producto {string} se visualice en el carrito")
+    public void valido_que_el_producto_se_visualice_en_el_carrito(String tituloProd) {
+        String productInCart = ProductosDemoBlaze.getProductCart(driver).getText();
+        String testProductExpected = tituloProd;
+        System.out.println("Se extrae el titulo: "+productInCart+ " ");
+        System.out.println("Se debe tener el titulo: "+testProductExpected+ " ");
     }
 
 }

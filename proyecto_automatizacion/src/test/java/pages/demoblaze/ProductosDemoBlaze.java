@@ -8,4 +8,8 @@ public class ProductosDemoBlaze {
     public static WebElement gettituloProducto (WebDriver driver){
         return FactoryWebElements.initWithXpath(driver, "//h2[@class=\"name\"]");
     }
+
+    public static WebElement getProductCart (WebDriver driver){
+        return FactoryWebElements.initWithXpath(driver, "//tbody[@id = \"tbodyid\"] //td[text() = \"Nexus 6\"] ");
+    }
 }
