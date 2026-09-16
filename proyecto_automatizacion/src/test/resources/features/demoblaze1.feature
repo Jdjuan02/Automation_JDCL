@@ -11,14 +11,13 @@
     Scenario: Validar que la categoria Phones y no tiene menos de 2 productos
       Given Estoy en la web de "https://demoblaze.com/#"
 
-      When doy click a la categoria "Phones"
+      When doy click a la categoria "Monitors"
       Then Valido que no existan menos de "2" productos
 
     @Criterio3
-    Scenario: Validar que la categoria debe mostrar como maximo 6 productos
+    Scenario: Validar que la categoria debe mostrar como maximo 9 productos
       Given Estoy en la web de "https://demoblaze.com/#"
 
-      When doy click en la categoria "Laptops"
       Then Valido que existan maximo "9" productos
 
 

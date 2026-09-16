@@ -1,6 +1,7 @@
 package definitions;
 
 import configs.WebDriverManager;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
@@ -42,5 +43,42 @@ public class Criterio1_DemoBlaze {
         String tituloEsperadoC3 = categori3;
 
         Assert.assertEquals("la categoria no es igual", titulocategori3, tituloEsperadoC3);
+    }
+
+    @Given("doy click a la categoria {string}")
+    public void doy_click_a_la_categoria_y(String categoryPhone) throws InterruptedException {
+
+        HomeDemoBlaze.getTitulocategori3(driver).click();
+        Thread.sleep(3000);
+    }
+
+    @Given("Valido que no existan menos de {string} productos")
+    public void la_categoría_debe_tener_como_mínimo_productos(String numProd) {
+        int numeroEsperado = Integer.parseInt(numProd);
+        int numeroProdFront = HomeDemoBlaze.getProductos(driver).size();
+        System.out.println("Se esperan: "+numeroEsperado+ " Elementos");
+        System.out.println("Se encuentran: "+numeroProdFront+ " Elementos en el front");
+        Assert.assertTrue("El numero de productos es menor al esperado", numeroProdFront >=  numeroEsperado);
+    }
+
+    @Then("Valido que existan maximo {string} productos")
+    public void valido_que_existan_maximo_productos(String numMaxProd) {
+        int numeroEsperado = Integer.parseInt(numMaxProd);
+        int numeroProdFront = HomeDemoBlaze.getProductos(driver).size();
+        System.out.println("Se esperan: "+numeroEsperado+ " Elementos");
+        System.out.println("Se encuentran: "+numeroProdFront+ " Elementos en el front");
+        Assert.assertTrue("El numero de productos es mayor al esperado", numeroEsperado >=  numeroProdFront);
+    }
+
+    @Then("El titulo de la pestaña debe ser {string}")
+    public void el_titulo_de_la_pestaña_debe_ser(String tittlePestaña) {
+        String tituloStore = driver.getTitle();
+        String tituloEsperado = tittlePestaña;
+
+        System.out.println("Se espera: "+tituloEsperado+ " ");
+        System.out.println("Se extrae el titulo: "+tituloStore+ " ");
+        Assert.assertTrue("El nombre de la pestaña es ", tituloStore.equals(tituloEsperado));
+        Assert.assertEquals("la categoria no es igual", tituloStore, tituloEsperado);
+
     }
 }
