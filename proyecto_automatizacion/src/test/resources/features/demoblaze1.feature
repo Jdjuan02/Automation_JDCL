@@ -32,3 +32,12 @@
       And realizo clic en agregar a carrito
       And realizo click en el carrito
       Then valido que el producto "Nexus 6" se visualice en el carrito
+
+    @Criterio6
+    Scenario: EL costo total del carrito debe coincidir con los produtos añadidos a el
+      Given Estoy en la web de "https://demoblaze.com/#"
+      When realizo click sobre el producto "Nexus 6"
+      And Valido que la ficha corresponde a "Nexus 6"
+      And realizo clic en agregar a carrito
+      And realizo click en el carrito
+      Then valido que el producto "Nexus 6" se visualice en el carrito
