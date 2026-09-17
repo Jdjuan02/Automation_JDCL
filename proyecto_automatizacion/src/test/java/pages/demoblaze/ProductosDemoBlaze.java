@@ -22,6 +22,10 @@ public class ProductosDemoBlaze {
     }
 
     public static WebElement getPriceProducts(WebDriver driver) {
-        return FactoryWebElements.initWithXpath(driver, "//tbody[@id='tbodyid']//tr/td[3]");
+        return FactoryWebElements.initWithXpath(driver, "//td[contains(text(), \"700\")]");
+    }
+
+    public static WebElement getPriceProducts2(WebDriver driver) {
+        return FactoryWebElements.initWithXpath(driver, "//td[contains(text(), \"650\")]");
     }
 }

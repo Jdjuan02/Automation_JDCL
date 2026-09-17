@@ -95,8 +95,13 @@ public class Criterio2_DemoBalze {
 
     @Then("valido que el total de los precios sea el correcto")
     public void valido_que_el_total_de_los_precios_sea_el_correcto() {
-        String getPricesProducts = ProductosDemoBlaze.getPriceProducts(driver).getText();
+        int getPricesProducts = Integer.parseInt(ProductosDemoBlaze.getPriceProducts(driver).getText());
+        int getProduct2 = Integer.parseInt(ProductosDemoBlaze.getPriceProducts2(driver).getText());
 
         System.out.println("Los precios o textos son: " + getPricesProducts);
+        System.out.println("Los precios o textos son: " + getProduct2);
+
+        int total = getPricesProducts + getProduct2;
+        System.out.println("La sumatoria es: " + total);
     }
 }
