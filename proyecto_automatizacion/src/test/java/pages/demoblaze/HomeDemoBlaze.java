@@ -7,19 +7,19 @@ import utils.FactoryWebElements;
 import java.util.List;
 
 public class HomeDemoBlaze {
-    public static WebElement getGoupCategories (WebDriver driver){
+    public static WebElement getGoupCategories(WebDriver driver) {
         return FactoryWebElements.initWithXpath(driver, "//a[contains(@id, \"cat\")]");
     }
 
-    public static WebElement getTitulocategori1 (WebDriver driver){
+    public static WebElement getTitulocategori1(WebDriver driver) {
         return FactoryWebElements.initWithXpath(driver, "//a[contains(@onclick, \"byCat('phone')\")]");
     }
 
-    public static WebElement getTitulocategori2 (WebDriver driver){
+    public static WebElement getTitulocategori2(WebDriver driver) {
         return FactoryWebElements.initWithXpath(driver, "//a[contains(@onclick, \"byCat('notebook')\")]");
     }
 
-    public static WebElement getTitulocategori3 (WebDriver driver){
+    public static WebElement getTitulocategori3(WebDriver driver) {
         return FactoryWebElements.initWithXpath(driver, "//a[contains(@onclick, \"byCat('monitor')\")]");
     }
 
@@ -27,27 +27,27 @@ public class HomeDemoBlaze {
         return By.cssSelector("//div[contains(@class, \"col-lg-4 col-md-6 mb-4\")]");
     }*/
 
-    public static List<WebElement> getProductos (WebDriver driver){
+    public static List<WebElement> getProductos(WebDriver driver) {
         return FactoryWebElements.initElementsWithXpath(driver, "//div[@class=\"card-block\"]");
     }
 
-    public static WebElement getTituloPrincipal (WebDriver driver){
+    public static WebElement getTituloPrincipal(WebDriver driver) {
         return FactoryWebElements.initWithXpath(driver, "/html/head/title");
     }
 
-    public static WebElement getProducto (WebDriver driver, String producto){
-        return FactoryWebElements.initWithXpath(driver, "//a[@class=\"hrefch\" and contains(text(), '"+producto+"')]");
+    public static WebElement getProducto(WebDriver driver, String producto) {
+        return FactoryWebElements.initWithXpath(driver, "//a[@class=\"hrefch\" and contains(text(), '" + producto + "')]");
     }
 
-    public static WebElement getProductCart1 (WebDriver driver){
+    public static WebElement getProductCart1(WebDriver driver) {
         return FactoryWebElements.initWithXpath(driver, "//a[@class = \"btn btn-success btn-lg\" and contains(text(), \"Add to cart\")]");
     }
 
-    public static WebElement getButtonCart (WebDriver driver){
+    public static WebElement getButtonCart(WebDriver driver) {
         return FactoryWebElements.initWithXpath(driver, "//a[@id = \"cartur\"]");
     }
 
-    public static WebElement getButtonHome (WebDriver driver){
+    public static WebElement getButtonHome(WebDriver driver) {
         return FactoryWebElements.initWithXpath(driver, "//a[@class=\"nav-link\" and contains(text(), \"Home \")]");
     }
 }
