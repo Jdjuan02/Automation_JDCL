@@ -46,4 +46,8 @@ public class HomeDemoBlaze {
     public static WebElement getButtonCart (WebDriver driver){
         return FactoryWebElements.initWithXpath(driver, "//a[@id = \"cartur\"]");
     }
+
+    public static WebElement getButtonHome (WebDriver driver){
+        return FactoryWebElements.initWithXpath(driver, "//a[@class=\"nav-link\" and contains(text(), \"Home \")]");
+    }
 }

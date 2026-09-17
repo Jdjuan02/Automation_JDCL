@@ -119,4 +119,57 @@ public class Criterio1_DemoBlaze {
         System.out.println("Se debe tener el titulo: "+testProductExpected+ " ");
     }
 
+    @When("realizo click sobre Home")
+    public void realizo_click_sobre_home() throws InterruptedException {
+        HomeDemoBlaze.getButtonHome(driver).click();
+        Thread.sleep(2000);
+    }
+
+    @When("realizo click en Phones")
+    public void realizo_click_en_phones() {
+        HomeDemoBlaze.getTitulocategori1(driver).click();
+    }
+
+    @When("realizo click sobre un producto de Phones")
+    public void realizo_click_sobre_un_producto_de_phones() throws InterruptedException {
+        ProductosDemoBlaze.getProductCartPhones(driver).click();
+        Thread.sleep(2000);
+    }
+
+    @When("realizo click en agregar al carrito y doy click en home")
+    public void realizo_click_en_agregar_al_carrito_y_doy_click_en_home() throws InterruptedException {
+        HomeDemoBlaze.getProductCart1(driver).click();
+        Thread.sleep(2000);
+        driver.switchTo().alert().accept();
+        Thread.sleep(2000);
+        HomeDemoBlaze.getButtonHome(driver).click();
+    }
+
+    @When("realizo click en Laptops")
+    public void realizo_click_en_laptops() {
+        HomeDemoBlaze.getTitulocategori2(driver).click();
+    }
+
+    @When("realizo click sobre un producto de Laptops")
+    public void realizo_click_sobre_un_producto_de_laptops() throws InterruptedException {
+        ProductosDemoBlaze.getProductCartLaptops(driver).click();
+        Thread.sleep(2000);
+    }
+
+    @When("realizo click en agregar al carrito y doy click en Cart")
+    public void realizo_click_en_agregar_al_carrito_y_doy_click_en_cart() throws InterruptedException {
+        HomeDemoBlaze.getProductCart1(driver).click();
+        Thread.sleep(2000);
+        driver.switchTo().alert().accept();
+        Thread.sleep(2000);
+        HomeDemoBlaze.getButtonCart(driver).click();
+    }
+
+    @Then("valido que el total de los precios sea el correcto")
+    public void valido_que_el_total_de_los_precios_sea_el_correcto() {
+        String getPricesProducts = ProductosDemoBlaze.getPriceProducts(driver).getText();
+
+        System.out.println("Los precios o textos son: "+getPricesProducts);
+    }
+
 }
