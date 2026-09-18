@@ -50,4 +50,12 @@ public class HomeDemoBlaze {
     public static WebElement getButtonHome(WebDriver driver) {
         return FactoryWebElements.initWithXpath(driver, "//a[@class=\"nav-link\" and contains(text(), \"Home \")]");
     }
+
+    public static WebElement getButtonPlaceOrder(WebDriver driver) {
+        return FactoryWebElements.initWithXpath(driver, "//button[@data-target=\"#orderModal\" and contains(text(), \"Place Order\")]");
+    }
+
+    public static WebElement getFormOrder(WebDriver driver) {
+        return FactoryWebElements.initWithXpath(driver, "//h5[@id=\"orderModalLabel\" and contains(text(),\"Place order\")]/ancestor::div[contains(@class,'modal-content')]//form");
+    }
 }

@@ -5,6 +5,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import pages.demoblaze.HomeDemoBlaze;
 import pages.demoblaze.ProductosDemoBlaze;
 
@@ -91,6 +92,7 @@ public class Criterio2_DemoBalze {
         driver.switchTo().alert().accept();
         Thread.sleep(2000);
         HomeDemoBlaze.getButtonCart(driver).click();
+        Thread.sleep(2000);
     }
 
     @Then("valido que el total de los precios sea el correcto")
@@ -105,6 +107,19 @@ public class Criterio2_DemoBalze {
         int total = getPricesProducts + getProduct2;
         System.out.println("La sumatoria es: " + total);
 
-        Assert.assertEquals("no corresponde al total de los productos", total,getTotalPrice);
+        Assert.assertEquals("no corresponde al total de los productos", total, getTotalPrice);
+    }
+
+    @When("realizo click sobre Place Order")
+    public void realizo_click_sobre_place_order() throws InterruptedException {
+        HomeDemoBlaze.getButtonPlaceOrder(driver).click();
+        Thread.sleep(2000);
+    }
+
+    @Then("valido que el formulario de compra exista")
+    public void valido_que_el_formulario_de_compra_exista() {
+        WebElement formularioFront = HomeDemoBlaze.getFormOrder(driver);
+
+        Assert.assertTrue("No existeningun formulario", formularioFront.isDisplayed());
     }
 }

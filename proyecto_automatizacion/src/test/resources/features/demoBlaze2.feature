@@ -21,3 +21,15 @@ Feature: ejercicio practico 2
     And realizo click sobre un producto de Laptops
     And realizo click en agregar al carrito y doy click en Cart
     Then valido que el total de los precios sea el correcto
+
+  @Criterioejercicio3
+  Scenario: Al presionar en Place Order debe mostrarse el formulario de compra
+    Given Estoy en la web de "https://demoblaze.com/#"
+    When realizo click sobre Home
+    And realizo click en Laptops
+    And realizo click sobre un producto de Laptops
+    And realizo click en agregar al carrito y doy click en Cart
+    When realizo click sobre Place Order
+    Then valido que el formulario de compra exista
+
+    
