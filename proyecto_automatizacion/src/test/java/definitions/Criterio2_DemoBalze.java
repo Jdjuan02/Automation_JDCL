@@ -97,11 +97,14 @@ public class Criterio2_DemoBalze {
     public void valido_que_el_total_de_los_precios_sea_el_correcto() {
         int getPricesProducts = Integer.parseInt(ProductosDemoBlaze.getPriceProducts(driver).getText());
         int getProduct2 = Integer.parseInt(ProductosDemoBlaze.getPriceProducts2(driver).getText());
+        int getTotalPrice = Integer.parseInt(ProductosDemoBlaze.getPriceTotal(driver).getText());
 
         System.out.println("Los precios o textos son: " + getPricesProducts);
         System.out.println("Los precios o textos son: " + getProduct2);
 
         int total = getPricesProducts + getProduct2;
         System.out.println("La sumatoria es: " + total);
+
+        Assert.assertEquals("no corresponde al total de los productos", total,getTotalPrice);
     }
 }

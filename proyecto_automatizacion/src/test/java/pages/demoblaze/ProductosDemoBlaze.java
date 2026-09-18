@@ -28,4 +28,8 @@ public class ProductosDemoBlaze {
     public static WebElement getPriceProducts2(WebDriver driver) {
         return FactoryWebElements.initWithXpath(driver, "//td[contains(text(), \"650\")]");
     }
+
+    public static WebElement getPriceTotal(WebDriver driver) {
+        return FactoryWebElements.initWithXpath(driver, "//h3[@id=\"totalp\"]");
+    }
 }
