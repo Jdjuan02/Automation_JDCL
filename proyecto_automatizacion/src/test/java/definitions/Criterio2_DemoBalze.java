@@ -122,4 +122,20 @@ public class Criterio2_DemoBalze {
 
         Assert.assertTrue("No existeningun formulario", formularioFront.isDisplayed());
     }
+
+    @When("ingreso {string} en el campo {string}")
+    public void ingreso_en_el_campo(String dato, String campo) {
+        ProductosDemoBlaze.getDateForm(driver, campo).sendKeys(dato);
+    }
+
+    @When("realizo click en Purchase")
+    public void realizo_click_en_purchase() {
+        ProductosDemoBlaze.getButtonPurchase(driver).click();
+
+    }
+
+    @Then("valido el mensaje de {string}")
+    public void valido_el_mensaje_de(String compraExitosa) {
+        ProductosDemoBlaze.getTextPurchase(driver, compraExitosa);
+    }
 }

@@ -32,4 +32,16 @@ public class ProductosDemoBlaze {
     public static WebElement getPriceTotal(WebDriver driver) {
         return FactoryWebElements.initWithXpath(driver, "//h3[@id=\"totalp\"]");
     }
+
+    public static WebElement getDateForm(WebDriver driver, String campo) {
+        return FactoryWebElements.initWithXpath(driver, "//label[text()='"+campo+"']//following-sibling::input");
+    }
+
+    public static WebElement getButtonPurchase(WebDriver driver) {
+        return FactoryWebElements.initWithXpath(driver, "//button[@onclick=\"purchaseOrder()\" and contains(text(),\"Purchase\")]");
+    }
+
+    public static WebElement getTextPurchase(WebDriver driver,String tituloPurchase) {
+        return FactoryWebElements.initWithXpath(driver, "//h2[text()='"+tituloPurchase+"']");
+    }
 }
