@@ -120,7 +120,7 @@ public class Criterio2_DemoBalze {
     public void valido_que_el_formulario_de_compra_exista() {
         WebElement formularioFront = HomeDemoBlaze.getFormOrder(driver);
 
-        Assert.assertTrue("No existeningun formulario", formularioFront.isDisplayed());
+        Assert.assertTrue("No existe ningun formulario", formularioFront.isDisplayed());
     }
 
     @When("ingreso {string} en el campo {string}")

@@ -44,4 +44,20 @@ public class ProductosDemoBlaze {
     public static WebElement getTextPurchase(WebDriver driver,String tituloPurchase) {
         return FactoryWebElements.initWithXpath(driver, "//h2[text()='"+tituloPurchase+"']");
     }
+
+    public static WebElement getImageProduct(WebDriver driver) {
+        return FactoryWebElements.initWithXpath(driver, "//div[@id =\"imgp\"]/div[@class = \"item active\"]/img");
+    }
+
+    public static WebElement getPriceProduct(WebDriver driver) {
+        return FactoryWebElements.initWithXpath(driver, "//h3[@class =\"price-container\" and contains(text(), \"$650\")]");
+    }
+
+    public static WebElement getDescriptionProduct(WebDriver driver) {
+        return FactoryWebElements.initWithXpath(driver, "//div[@id =\"more-information\"]/p");
+    }
+
+
+
+    //div[@id ="more-information"]/p
 }
