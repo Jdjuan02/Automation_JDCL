@@ -6,7 +6,10 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import pages.demoblaze.HomeDemoBlaze;
 import pages.demoblaze.ProductosDemoBlaze;
+
+import java.util.List;
 
 public class Criterio3_DemoBlaze {
     private final WebDriver driver = WebDriverManager.getDriver();
@@ -34,4 +37,20 @@ public class Criterio3_DemoBlaze {
         System.out.println("Se visualiza la siguiente descripcion" +description);
         Assert.assertTrue("No hay contenido en la descripcion: ", desciptionFront.isDisplayed() && !description.trim().isEmpty());
     }
+
+    @When("realizo click en eliminar producto")
+    public void realizo_click_en_eliminar_producto() throws InterruptedException {
+        ProductosDemoBlaze.getbuttonDeletedProduct(driver).click();
+        Thread.sleep(3000);
+    }
+
+    /*@Then("el producto {string} fue eliminado y no se visualiza")
+    public void el_producto_fue_eliminado_y_no_se_visualiza(String productDrop) {
+        List<WebElement> productoFront = ProductosDemoBlaze.getNameProductDrop(driver, productDrop);
+
+        System.out.println("Producto esperado: " + productDrop);
+        System.out.println("Cantidad de productos encontrados: " + productoFront.size());
+        Assert.assertTrue("El producto todavía se visualiza en el carrito: " + productDrop, productoFront.isEmpty()
+        );
+    }*/
 }

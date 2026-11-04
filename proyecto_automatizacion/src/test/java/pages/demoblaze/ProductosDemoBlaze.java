@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import utils.FactoryWebElements;
 
+import java.util.List;
+
 public class ProductosDemoBlaze {
     public static WebElement gettituloProducto(WebDriver driver) {
         return FactoryWebElements.initWithXpath(driver, "//h2[@class=\"name\"]");
@@ -57,7 +59,14 @@ public class ProductosDemoBlaze {
         return FactoryWebElements.initWithXpath(driver, "//div[@id =\"more-information\"]/p");
     }
 
+    public static WebElement getbuttonDeletedProduct(WebDriver driver) {
+        return FactoryWebElements.initWithXpath(driver, "//tr[@class =\"success\"]/td/a[contains(text(), \"Delete\")]");
+    }
+
+    /*public static List<WebElement> getNameProductDrop(WebDriver driver, String nameProductDrop) {
+        return FactoryWebElements.initElementsWithXpath(driver, "//tbody[@id=\"tbodyid\"]//td[normalize-space()='"+nameProductDrop+"']");
+    }*/
 
 
-    //div[@id ="more-information"]/p
+
 }

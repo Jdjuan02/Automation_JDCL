@@ -14,11 +14,7 @@ public class Criterio1_DemoBlaze {
 
     private final WebDriver driver = WebDriverManager.getDriver();
 
-    /*@Given("Estoy en la web de {string}")
-    public void estoy_en_la_web_de(String url) {
-        driver.get(url);
-    }*/
-
+    // Criterio1 -
     @When("Validar Card de {string}")
     public void validar_card_de(String CATEGORIES) throws InterruptedException {
         String tituloActual = HomeDemoBlaze.getGoupCategories(driver).getText();
@@ -27,20 +23,24 @@ public class Criterio1_DemoBlaze {
 
         Assert.assertEquals("Los mensajes no son iguales", tituloEsperado, tituloActual);
     }
-
+    // Criterio1 -
     @Then("Validar categorias de {string}, {string} y {string}")
     public void validar_categorias_de_y(String categori1, String categori2, String categori3) {
-        String titulocategori1 = HomeDemoBlaze.getTitulocategori1(driver).getText();
+
+        // Se valida la categoria 1 que es Phones
+        String titulocategori1 = HomeDemoBlaze.getTitulocategori1(driver, categori1).getText();
         String tituloEsperadoC1 = categori1;
 
         Assert.assertEquals("la categoria no es igual", titulocategori1, tituloEsperadoC1);
 
-        String titulocategori2 = HomeDemoBlaze.getTitulocategori2(driver).getText();
+        // Se valida la categoria 2 que es Laptops
+        String titulocategori2 = HomeDemoBlaze.getTitulocategori2(driver, categori2).getText();
         String tituloEsperadoC2 = categori2;
 
         Assert.assertEquals("la categoria no es igual", titulocategori2, tituloEsperadoC2);
 
-        String titulocategori3 = HomeDemoBlaze.getTitulocategori3(driver).getText();
+        // Se valida la categoria 3 que es Monitors
+        String titulocategori3 = HomeDemoBlaze.getTitulocategori3(driver, categori3).getText();
         String tituloEsperadoC3 = categori3;
 
         Assert.assertEquals("la categoria no es igual", titulocategori3, tituloEsperadoC3);
@@ -49,7 +49,7 @@ public class Criterio1_DemoBlaze {
     @Given("doy click a la categoria {string}")
     public void doy_click_a_la_categoria_y(String categoryPhone) throws InterruptedException {
 
-        HomeDemoBlaze.getTitulocategori1(driver).click();
+        HomeDemoBlaze.getTitulocategori1(driver, categoryPhone).click();
         Thread.sleep(3000);
     }
 

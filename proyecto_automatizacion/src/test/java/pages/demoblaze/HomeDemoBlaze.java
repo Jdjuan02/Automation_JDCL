@@ -10,17 +10,17 @@ public class HomeDemoBlaze {
     public static WebElement getGoupCategories(WebDriver driver) {
         return FactoryWebElements.initWithXpath(driver, "//a[contains(@id, \"cat\")]");
     }
-
-    public static WebElement getTitulocategori1(WebDriver driver) {
-        return FactoryWebElements.initWithXpath(driver, "//a[contains(@onclick, \"byCat('phone')\")]");
+    // Criterio1 -
+    public static WebElement getTitulocategori1(WebDriver driver, String categoria1) {
+        return FactoryWebElements.initWithXpath(driver, "//a[@id = \"itemc\" and contains(text(), '"+categoria1+"')]");
     }
-
-    public static WebElement getTitulocategori2(WebDriver driver) {
-        return FactoryWebElements.initWithXpath(driver, "//a[contains(@onclick, \"byCat('notebook')\")]");
+    // Criterio1 -
+    public static WebElement getTitulocategori2(WebDriver driver, String categoria2) {
+        return FactoryWebElements.initWithXpath(driver, "//a[@id = \"itemc\" and contains(text(), '"+categoria2+"')]");
     }
-
-    public static WebElement getTitulocategori3(WebDriver driver) {
-        return FactoryWebElements.initWithXpath(driver, "//a[contains(@onclick, \"byCat('monitor')\")]");
+    // Criterio1 - 
+    public static WebElement getTitulocategori3(WebDriver driver, String categoria3) {
+        return FactoryWebElements.initWithXpath(driver, "//a[@id = \"itemc\" and contains(text(), '"+categoria3+"')]");
     }
 
     /*public static By getContainsProducts (WebDriver cssSelector){

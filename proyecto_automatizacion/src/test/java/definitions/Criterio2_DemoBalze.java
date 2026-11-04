@@ -23,7 +23,7 @@ public class Criterio2_DemoBalze {
         String tituloFront = ProductosDemoBlaze.gettituloProducto(driver).getText();
         String tituloEsperado = tituloProd;
         System.out.println("Se espera el titulo: " + tituloEsperado + " ");
-        System.out.println("Se encuentra el titulo: " + tituloFront + " en el front");
+        System.out.println("Se encuentra el titulo: " + tituloFront + " , en el front");
         Assert.assertEquals("El titulo del producto no es igual", tituloFront, tituloEsperado);
         Thread.sleep(3000);
     }
@@ -46,6 +46,7 @@ public class Criterio2_DemoBalze {
         String testProductExpected = tituloProd;
         System.out.println("Se extrae el titulo: " + productInCart + " ");
         System.out.println("Se debe tener el titulo: " + testProductExpected + " ");
+        Assert.assertEquals("El titulo no es el mismo", productInCart,testProductExpected);
     }
 
     @When("realizo click sobre Home")
@@ -55,8 +56,8 @@ public class Criterio2_DemoBalze {
     }
 
     @When("realizo click en Phones")
-    public void realizo_click_en_phones() {
-        HomeDemoBlaze.getTitulocategori1(driver).click();
+    public void realizo_click_en_phones(String category1) {
+        HomeDemoBlaze.getTitulocategori1(driver, category1).click();
     }
 
     @When("realizo click sobre un producto de Phones")
@@ -75,8 +76,8 @@ public class Criterio2_DemoBalze {
     }
 
     @When("realizo click en Laptops")
-    public void realizo_click_en_laptops() {
-        HomeDemoBlaze.getTitulocategori2(driver).click();
+    public void realizo_click_en_laptops(String category2) {
+        HomeDemoBlaze.getTitulocategori2(driver, category2).click();
     }
 
     @When("realizo click sobre un producto de Laptops")

@@ -6,17 +6,21 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 public class WebDriverManager {
 
-    public static WebDriver driver;
+    private static WebDriver driver;
 
-    public static WebDriver getDriver(){
-        if(driver == null){
-            System.setProperty("webDriver.chrome.driver", "src/test/resources/webdrivers/chromedriver.exe");
-
+    public static WebDriver getDriver() {
+        if (driver == null) {
             ChromeOptions options = new ChromeOptions();
-            //options.addArguments("--window-size=300,200");
-
+            options.addArguments("--start-maximized"); // opcional
             driver = new ChromeDriver(options);
         }
         return driver;
+    }
+
+    public static void quitDriver() {
+        if (driver != null) {
+            driver.quit();
+            driver = null;
+        }
     }
 }
