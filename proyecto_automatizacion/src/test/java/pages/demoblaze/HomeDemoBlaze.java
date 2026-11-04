@@ -7,8 +7,8 @@ import utils.FactoryWebElements;
 import java.util.List;
 
 public class HomeDemoBlaze {
-    public static WebElement getGoupCategories(WebDriver driver) {
-        return FactoryWebElements.initWithXpath(driver, "//a[contains(@id, \"cat\")]");
+    public static WebElement getGoupCategories(WebDriver driver, String cardCategories) {
+        return FactoryWebElements.initWithXpath(driver, "//a[contains(@id, \"cat\") and contains(text(), '"+cardCategories+"')]");
     }
     // Criterio1 -
     public static WebElement getTitulocategori1(WebDriver driver, String categoria1) {
@@ -18,7 +18,7 @@ public class HomeDemoBlaze {
     public static WebElement getTitulocategori2(WebDriver driver, String categoria2) {
         return FactoryWebElements.initWithXpath(driver, "//a[@id = \"itemc\" and contains(text(), '"+categoria2+"')]");
     }
-    // Criterio1 - 
+    // Criterio1 -
     public static WebElement getTitulocategori3(WebDriver driver, String categoria3) {
         return FactoryWebElements.initWithXpath(driver, "//a[@id = \"itemc\" and contains(text(), '"+categoria3+"')]");
     }

@@ -17,10 +17,12 @@ public class Criterio1_DemoBlaze {
     // Criterio1 -
     @When("Validar Card de {string}")
     public void validar_card_de(String CATEGORIES) throws InterruptedException {
-        String tituloActual = HomeDemoBlaze.getGoupCategories(driver).getText();
+        // se extrae titulo de la categoria y se obtiene el titulo de la categoria que se requiere
+        String tituloActual = HomeDemoBlaze.getGoupCategories(driver, CATEGORIES).getText();
         String tituloEsperado = CATEGORIES;
 
-
+        System.out.println("Se encuentra: " + tituloActual + " ");
+        System.out.println("Se espera: " + tituloEsperado + " ");
         Assert.assertEquals("Los mensajes no son iguales", tituloEsperado, tituloActual);
     }
     // Criterio1 -
